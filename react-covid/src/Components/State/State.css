@@ -1,0 +1,16 @@
+.state {
+  width: 75%;
+  margin: 30px auto;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 20px 25px;
+  background-color: rgba(235, 230, 230, 0.548);
+  border-radius: 5px;
+}
+
+tr {
+  margin: 25px;
+}

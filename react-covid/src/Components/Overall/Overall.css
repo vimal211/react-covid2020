@@ -1,0 +1,26 @@
+.overall {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 10px 15px;
+  margin-top: 30px;
+}
+
+.right {
+  text-align: right;
+  color: rgb(88, 88, 235);
+  font-size: larger;
+}
+
+.left h3 {
+  color: rgb(247, 93, 93);
+  display: inline;
+  padding: 5px;
+  font-size: 35px;
+  background-color: rgba(247, 93, 93, 0.151);
+}
+
+.left p {
+  font-size: larger;
+  padding-top: 15px;
+}
