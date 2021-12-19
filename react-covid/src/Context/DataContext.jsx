@@ -6,6 +6,7 @@ export const DataContext = createContext();
 export const DataProvider = (props) => {
   const [data, setData] = useState([5, 5]);
   const [search, setSearch] = useState([]);
+  const [defaultStart, setDefaultStart] = useState(true);
 
   useEffect(() => {
     axios
@@ -106,7 +107,9 @@ export const DataProvider = (props) => {
   }, []);
 
   return (
-    <DataContext.Provider value={[data, setData, search, setSearch]}>
+    <DataContext.Provider
+      value={[data, setData, search, setSearch, defaultStart, setDefaultStart]}
+    >
       {props.children}
     </DataContext.Provider>
   );

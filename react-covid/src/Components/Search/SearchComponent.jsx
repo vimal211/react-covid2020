@@ -5,7 +5,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function SearchComponent() {
-  const [data, setData, search, setSearch] = useContext(DataContext);
+  const [data, setData, search, setSearch, defaultStart, setDefaultStart] =
+    useContext(DataContext);
   let confirmed = data.map((e) => e.confirmed).reduce((a, b) => a + b);
   let recovered = data.map((e) => e.recovered).reduce((a, b) => a + b);
   let deceased = data.map((e) => e.deceased).reduce((a, b) => a + b);
@@ -15,6 +16,7 @@ function SearchComponent() {
     let input = e.target.value;
     let stateFound = [];
     if (input === "") {
+      setDefaultStart(true);
       setSearch(data);
     } else {
       stateFound = data.filter((state) => {
@@ -23,7 +25,10 @@ function SearchComponent() {
       });
       console.log(stateFound);
       if (stateFound.length === 0) {
-        toast.error("No state found");
+        // toast.error("No state found");
+        setDefaultStart(false);
+      } else {
+        setDefaultStart(true);
       }
       setSearch(stateFound);
     }
@@ -31,7 +36,7 @@ function SearchComponent() {
 
   return (
     <div>
-      <ToastContainer theme="colored" />
+      {/* <ToastContainer theme="colored" /> */}
       <div className="search">
         <p>Search your state</p>
         <input

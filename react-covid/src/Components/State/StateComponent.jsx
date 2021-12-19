@@ -3,7 +3,8 @@ import "./State.css";
 import { DataContext } from "../../Context/DataContext";
 
 function StateComponent() {
-  const [data, setData, search, setSearch] = useContext(DataContext);
+  const [data, setData, search, setSearch, defaultStart, setDefaultStart] =
+    useContext(DataContext);
 
   const tableRender = (ele) => {
     let fragment = ele.map((state) => {
@@ -43,17 +44,21 @@ function StateComponent() {
   };
   return (
     <div className="state">
-      <table>
-        <tr>
-          <th>State</th>
-          <th>Confirmed</th>
-          <th>Active</th>
-          <th>Recovered</th>
-          <th>Decesed</th>
-          <th>Tested</th>
-        </tr>
-        {search.length > 0 ? tableRender(search) : tableRender(data)}
-      </table>
+      {defaultStart ? (
+        <table>
+          <tr>
+            <th>State</th>
+            <th>Confirmed</th>
+            <th>Active</th>
+            <th>Recovered</th>
+            <th>Decesed</th>
+            <th>Tested</th>
+          </tr>
+          {search.length > 0 ? tableRender(search) : tableRender(data)}
+        </table>
+      ) : (
+        <h1>No state found</h1>
+      )}
     </div>
   );
 }

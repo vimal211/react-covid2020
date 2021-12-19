@@ -3,11 +3,18 @@
   margin: 30px auto;
 }
 
+.state h1 {
+  background-color: #ebe6e68c;
+  text-align: center;
+  padding: 25px 15px;
+  color: #000000;
+}
+
 th,
 td {
   text-align: left;
   padding: 20px 25px;
-  background-color: rgba(235, 230, 230, 0.548);
+  background-color: #ebe6e68c;
   border-radius: 5px;
 }
 
